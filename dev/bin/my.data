@@ -1,0 +1,5 @@
+classes= 6
+train  = my_cropper/train.txt
+valid = my_cropper/train.txt
+names = my_cropper/classes.names
+backup = my_cropper/backup
