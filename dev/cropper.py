@@ -21,6 +21,8 @@ class CROPPER:
         classes, scores, boxes = self.detector.predict(
             image, confidence_threshold, nms_threshold)
 
+        self.drawing(image, classes, scores, boxes)
+
         off_set = 2
         tls = []
         trs = []
@@ -47,8 +49,6 @@ class CROPPER:
         ]
         cropped = self.cropCard(image, four_point_corners)
         cv2.imshow("cropped", cropped)
-
-        self.drawing(image, classes, scores, boxes)
 
     def drawing(self, image, classes, scores, boxes):
         drawed = image.copy()
