@@ -1,0 +1,5 @@
+classes= 6
+train  = my_detector/train.txt
+valid = my_detector/train.txt
+names = my_detector/classes.names
+backup = my_detector/backup

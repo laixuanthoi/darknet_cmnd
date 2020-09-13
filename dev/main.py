@@ -39,5 +39,5 @@ for path in imagePaths:
         image = cv2.resize(image, (W//2, H//2))
     cropper.detectCardInImage(
         image, cropper_config["confidence_threshold"], cropper_config["nms_threshold"])
-    cv2.imshow("frame", image)
-    cv2.waitKey(0)
+    cv2.imshow("image", image)
+    cv2.waitKey(1)

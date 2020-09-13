@@ -8,6 +8,7 @@ class CROPPER:
         self.cardWidth = 430
         self.cardHeight = 270
         self.detector = Detector(configPath, weightPath, classPath)
+        self.count_cropped = 1
 
     def cropCard(self, image, points):
         # top left - top right - bot right - bot left
@@ -23,7 +24,7 @@ class CROPPER:
 
         self.drawing(image, classes, scores, boxes)
 
-        off_set = 2
+        off_set = 5
         tls = []
         trs = []
         bls = []
@@ -49,6 +50,8 @@ class CROPPER:
         ]
         cropped = self.cropCard(image, four_point_corners)
         cv2.imshow("cropped", cropped)
+        cv2.imwrite("cropped_image/image_{}.jpg".format(str(self.count_cropped).zfill(3)),cropped)
+        self.count_cropped += 1
 
     def drawing(self, image, classes, scores, boxes):
         drawed = image.copy()
