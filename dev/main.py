@@ -17,9 +17,9 @@ cropper_config = {
 
 detector_config = {
     "classPath": "detector/classes.names",
-    "weightPath": "detector/tiny_yolo4_darknet_backbone_15000.weights",
+    "weightPath": "detector/tiny_yolo4_darknet_backbone_1900.weights",
     "configPath": "detector/tiny_yolo4_darknet_backbone.cfg",
-    "confidence_threshold": 0.01,
+    "confidence_threshold": 0.5,
     "nms_threshold": .5
 }
 
@@ -65,7 +65,11 @@ for path in imagePaths:
         image = cv2.resize(image, (W//2, H//2))
     cropped_image = cropper.detectCardInImage(
         image, cropper_config["confidence_threshold"], cropper_config["nms_threshold"])
+
     if cropped_image is not None:
+
+        # cropped_image = cv2.resize(
+        #     cropped_image, (cropped_image.shape[1]*2, cropped_image.shape[0]*2))
         detector.detect(
             cropped_image, detector_config["confidence_threshold"], detector_config["nms_threshold"])
     cv2.imshow("image", image)
