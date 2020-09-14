@@ -27,7 +27,7 @@ cropper = CROPPER(cropper_config["configPath"],
                   cropper_config["weightPath"], cropper_config["classPath"])
 
 detector = DETECTOR(detector_config["configPath"],
-                  detector_config["weightPath"], detector_config["classPath"])
+                    detector_config["weightPath"], detector_config["classPath"])
 
 # capture = cv2.VideoCapture(0)
 
@@ -67,6 +67,6 @@ for path in imagePaths:
         image, cropper_config["confidence_threshold"], cropper_config["nms_threshold"])
     if cropped_image is not None:
         detector.detect(
-        cropped_image, detector_config["confidence_threshold"], detector_config["nms_threshold"])
+            cropped_image, detector_config["confidence_threshold"], detector_config["nms_threshold"])
     cv2.imshow("image", image)
     cv2.waitKey(0)
