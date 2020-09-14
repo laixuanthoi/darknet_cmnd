@@ -233,7 +233,6 @@ my_detector/dataset/image_272.jpg
 my_detector/dataset/image_275.jpg
 my_detector/dataset/image_276.jpg
 my_detector/dataset/image_277.jpg
-my_detector/dataset/image_279.jpg
 my_detector/dataset/image_280.jpg
 my_detector/dataset/image_281.jpg
 my_detector/dataset/image_282.jpg
