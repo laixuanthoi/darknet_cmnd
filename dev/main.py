@@ -17,10 +17,10 @@ cropper_config = {
 
 detector_config = {
     "classPath": "detector/classes.names",
-    "weightPath": "detector/tiny_yolo4_darknet_backbone_1300.weights",
+    "weightPath": "detector/tiny_yolo4_darknet_backbone_15000.weights",
     "configPath": "detector/tiny_yolo4_darknet_backbone.cfg",
-    "confidence_threshold": 0.5,
-    "nms_threshold": 0.3
+    "confidence_threshold": 0.01,
+    "nms_threshold": .5
 }
 
 cropper = CROPPER(cropper_config["configPath"],
@@ -53,7 +53,10 @@ detector = DETECTOR(detector_config["configPath"],
 #     cv2.imshow("image", image)
 #     cv2.waitKey(1)
 
-imagePaths = glob.glob('image/*.jpg')
+# IMAGE_DIR = 'image/*.jpg'
+IMAGE_DIR = "image/*.jpg"
+
+imagePaths = glob.glob(IMAGE_DIR)
 
 for path in imagePaths:
     image = cv2.imread(path)
