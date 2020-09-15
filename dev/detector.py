@@ -5,18 +5,10 @@ from model import Model
 
 class DETECTOR:
     def __init__(self, configPath, weightPath, classPath):
-        self.cardWidth = 430
-        self.cardHeight = 270
+        self.cardWidth = 860
+        self.cardHeight = 540
         self.model = Model(configPath, weightPath, classPath, (1024, 1024))
         self.count_cropped = 1
-
-    def cropCard(self, image, points):
-        # top left - top right - bot right - bot left
-        src_points = np.float32(points)
-        dst_points = np.float32([[0, 0],                 [self.cardWidth, 0],
-                                 [0, self.cardHeight],   [self.cardWidth, self.cardHeight]])
-        matrix = cv2.getPerspectiveTransform(src_points, dst_points)
-        return cv2.warpPerspective(image, matrix, (self.cardWidth, self.cardHeight))
 
     def detect(self, image, confidence_threshold, nms_threshold):
         classes, scores, boxes = self.model.predict(

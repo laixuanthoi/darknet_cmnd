@@ -5,8 +5,8 @@ from model import Model
 
 class CROPPER:
     def __init__(self, configPath, weightPath, classPath):
-        self.cardWidth = 430
-        self.cardHeight = 270
+        self.cardWidth = 860
+        self.cardHeight = 540
         self.model = Model(configPath, weightPath, classPath)
         self.count_cropped = 1
 
@@ -50,7 +50,8 @@ class CROPPER:
         ]
         cropped = self.cropCard(image, four_point_corners)
         cv2.imshow("cropped", cropped)
-        cv2.imwrite("cropped_image/image_{}.jpg".format(str(self.count_cropped).zfill(3)),cropped)
+        cv2.imwrite(
+            "cropped_image/image_{}.jpg".format(str(self.count_cropped).zfill(3)), cropped)
         self.count_cropped += 1
         return cropped
 
