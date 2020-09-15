@@ -7,7 +7,7 @@ class DETECTOR:
     def __init__(self, configPath, weightPath, classPath):
         self.cardWidth = 430
         self.cardHeight = 270
-        self.model = Model(configPath, weightPath, classPath, (608,608))
+        self.model = Model(configPath, weightPath, classPath, (1024, 1024))
         self.count_cropped = 1
 
     def cropCard(self, image, points):

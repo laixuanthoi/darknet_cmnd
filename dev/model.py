@@ -15,6 +15,7 @@ class Model:
 
     def loadModel(self, configPath, weightPath):
         self.net = cv2.dnn.readNet(weightPath, configPath)
+        self.net
         self.model = cv2.dnn_DetectionModel(self.net)
         self.model.setInputParams(
             size=self.model_input_size, scale=1/255.0, swapRB=True)
