@@ -5,9 +5,8 @@ from model import Model
 
 class DETECTOR:
     def __init__(self, configPath, weightPath, classPath):
-        self.cardWidth = 860
-        self.cardHeight = 540
-        self.model = Model(configPath, weightPath, classPath, (1024, 1024))
+        self.model = Model(configPath, weightPath,
+                           classPath, (1024, 640))  # 1024 640
         self.count_cropped = 1
 
     def detect(self, image, confidence_threshold, nms_threshold):
