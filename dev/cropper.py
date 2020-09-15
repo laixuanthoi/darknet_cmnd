@@ -6,7 +6,7 @@ from model import Model
 class CROPPER:
     def __init__(self, configPath, weightPath, classPath):
         self.cardWidth = 1024
-        self.cardHeight = 640  # 642
+        self.cardHeight = 1024  # 642
         self.model = Model(configPath, weightPath, classPath)
         self.count_cropped = 1
 
