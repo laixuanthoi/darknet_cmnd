@@ -50,8 +50,8 @@ class CROPPER:
         ]
         cropped = self.cropCard(image, four_point_corners)
         cv2.imshow("cropped", cropped)
-        cv2.imwrite(
-            "cropped_image/image_{}.jpg".format(str(self.count_cropped).zfill(3)), cropped)
+        # cv2.imwrite(
+        #     "cropped_image/image_{}.jpg".format(str(self.count_cropped).zfill(3)), cropped)
         self.count_cropped += 1
         return cropped
 
