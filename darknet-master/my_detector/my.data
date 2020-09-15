@@ -1,4 +1,4 @@
-classes= 6
+classes= 5
 train  = my_detector/train.txt
 valid = my_detector/train.txt
 names = my_detector/classes.names
