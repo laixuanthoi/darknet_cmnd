@@ -12,8 +12,9 @@ class DETECTOR:
     def detect(self, image, confidence_threshold, nms_threshold):
         classes, scores, boxes = self.model.predict(
             image, confidence_threshold, nms_threshold)
-
         self.drawing(image, classes, scores, boxes)
+
+        return classes, scores, boxes
 
     def drawing(self, image, classes, scores, boxes):
         drawed = image.copy()

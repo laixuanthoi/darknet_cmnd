@@ -5,7 +5,7 @@ import cv2
 from cropper import CROPPER
 from detector import DETECTOR
 import glob
-
+from reader import READER
 
 cropper_config = {
     "classPath": "bin/classes.names",
@@ -23,12 +23,14 @@ detector_config = {
     "nms_threshold": .5
 }
 
+
 cropper = CROPPER(cropper_config["configPath"],
                   cropper_config["weightPath"], cropper_config["classPath"])
 
 detector = DETECTOR(detector_config["configPath"],
                     detector_config["weightPath"], detector_config["classPath"])
 
+reader = READER()
 # capture = cv2.VideoCapture(0)
 
 # while 1:
@@ -70,7 +72,25 @@ for path in imagePaths:
 
         # cropped_image = cv2.resize(
         #     cropped_image, (cropped_image.shape[1]*2, cropped_image.shape[0]*2))
-        detector.detect(
+        classes, scores, boxes = detector.detect(
             cropped_image, detector_config["confidence_threshold"], detector_config["nms_threshold"])
-    cv2.imshow("image", image)
-    cv2.waitKey(0)
+
+        names = []
+        box_offset = 5
+        for clss, box in zip(classes, boxes):
+            if clss == 2:
+                x, y, w, h = box
+                rect = cropped_image[y - box_offset:y +
+                                     h + box_offset, x - box_offset:x+w+box_offset]
+                # rect = cv2.GaussianBlur(rect, (3, 3), 9)
+                rect = cv2.medianBlur(rect, 3)
+                hh, ww = rect.shape[:2]
+                cv2.imshow("rect", rect)
+                text = reader.readName(rect)
+                print(text)
+                names.append(text.encode('utf-8').decode('utf-8'))
+                cv2.waitKey(0)
+
+        # print(names)
+    # cv2.imshow("image", image)
+    # cv2.waitKey(0)
