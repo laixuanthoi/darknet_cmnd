@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.core.files.storage import FileSystemStorage
-import time
+# from src.cardDetection import extractInfoFromImage
+from upload.src.cardDetection import extractInfoFromImage
+
+
 def index(request):
     return render(request, 'pages/home.html')
 
@@ -13,12 +16,13 @@ def cmt(request):
         fs.save(uploaded_file.name, uploaded_file)
         data = {
             "info": {
-                "maso": "",
-                "hoten": "",
-                "ngaysinh": "",
-                "nguyenquan": "",
-                "diachi": "",
+                "maso": "N/A",
+                "hoten": "N/A",
+                "ngaysinh": "N/A",
+                "nguyenquan": "N/A",
+                "diachi": "N/A",
             }
         }
-        time.sleep(5)
+
+        # process
         return JsonResponse(data)

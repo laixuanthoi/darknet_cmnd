@@ -1,11 +1,10 @@
-
-function addInfo(data){
-  const inf = data.info
-  $('#maso').text(inf.maso)
-  $('#hoten').text(inf.hoten)
-  $('#ngaysinh').text(inf.ngaysinh)
-  $('#nguyenquan').text(inf.nguyenquan)
-  $('#diachi').text(inf.diachi)
+function addInfo(data) {
+  const inf = data.info;
+  $("#maso").text(inf.maso);
+  $("#hoten").text(inf.hoten);
+  $("#ngaysinh").text(inf.ngaysinh);
+  $("#nguyenquan").text(inf.nguyenquan);
+  $("#diachi").text(inf.diachi);
 }
 function postData(input) {
   let formData = new FormData();
@@ -24,13 +23,13 @@ function postData(input) {
   });
 }
 
-function waitLoader(f){
-  if (f){
-      $(".loader").show();
-      $(".info-wrap").hide();
-  }else{
-      $(".loader").hide();
-      $(".info-wrap").show();
+function waitLoader(f) {
+  if (f) {
+    $(".loader").show();
+    $(".info-wrap").hide();
+  } else {
+    $(".loader").hide();
+    $(".info-wrap").show();
   }
 }
 
@@ -46,7 +45,7 @@ function readURL(input) {
 }
 
 $(function () {
-  waitLoader(false)
+  waitLoader(false);
   $("#upload").on("change", function () {
     readURL(input);
     postData(input);
