@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +9,7 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
     <link
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -31,7 +32,12 @@
               <u>Hướng dẫn</u>
             </a>
           </p>
-          <img src="assets/image/cmnd.png" alt="" width="300px" class="mb-4" />
+          <img
+            src="{% static 'assets/image/cmnd.png' %} "
+            alt=""
+            width="300px"
+            class="mb-4"
+          />
         </header>
         <div class="row py-4">
           <div class="col-lg-6 mx-auto">
@@ -64,11 +70,10 @@
               Thông tin sẽ được hiển thị bên dưới
             </p>
             <div class="info-wrap">
-              <!-- <img src="assets/image/cmnd.png" alt="" width="300px" class="mb-4"> -->
               <div class="image-area mt-2">
                 <img
                   id="imageResult"
-                  src="assets/image/cmnd.png"
+                  src="{% static 'assets/image/cmnd.png' %}"
                   width="400px"
                   alt=""
                   class="img-fluid rounded shadow-sm mx-auto d-block"
@@ -106,6 +111,6 @@
       </div>
     </main>
     <footer></footer>
-    <script src="assets/js/upload.js"></script>
+    <script src="{% static 'assets/js/upload.js'%}"></script>
   </body>
 </html>
