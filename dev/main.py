@@ -17,7 +17,7 @@ cropper_config = {
 
 detector_config = {
     "classPath": "detector/classes.names",
-    "weightPath": "detector/tiny_yolo4_darknet_backbone_4700.weights",
+    "weightPath": "detector/tiny_yolo4_darknet_backbone_6500.weights",
     "configPath": "detector/tiny_yolo4_darknet_backbone.cfg",
     "confidence_threshold": 0.5,
     "nms_threshold": .5
