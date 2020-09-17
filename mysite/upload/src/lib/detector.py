@@ -17,7 +17,8 @@ class DETECTOR:
             y1 = y - self.crop_offset
             x2 = (x + w) + self.crop_offset
             y2 = (y + h) + self.crop_offset
-            cropped =
+            cropped = image[y1:y2, x1:x2]
+            cands.append(cropped)
 
     def detect(self, image, confidence_threshold, nms_threshold):
         classes, scores, boxes = self.model.predict(
