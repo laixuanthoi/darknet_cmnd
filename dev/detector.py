@@ -18,7 +18,7 @@ class DETECTOR:
 
     def drawing(self, image, classes, scores, boxes):
         drawed = image.copy()
-        COLORS = [(0, 255, 255), (255, 255, 0), (0, 255, 0), (255, 0, 0)]
+        COLORS = [(255, 0, 0), (255, 0, 0),(0, 255, 255)]
         for (classid, score, box) in zip(classes, scores, boxes):
             color = COLORS[int(classid) % len(COLORS)]
             # label = "%s : %f" % (self.model.class_names[classid[0]], score)
